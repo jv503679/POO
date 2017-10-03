@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 class HelloWorld extends JPanel {
 	// panneau dans lequel on peut dessiner
 	protected void paintComponent(Graphics g) {
-		IterateurSymbole i = new IterateurSymbole(Code39.code("TETTAMANZI"));
+		IterateurSymbole i = new IterateurSymbole(Code39.code("MOUTON"));
 		char current;
 		int e, n, x, y;
 		x = 100;
