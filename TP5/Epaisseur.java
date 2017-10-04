@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 
 public enum Epaisseur {
-	LARGE(6),
+	LARGE(5),
 	ETROIT(2);
 	
 	private final int width, height;
