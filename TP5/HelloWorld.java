@@ -2,21 +2,23 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 class HelloWorld extends JPanel {
-	// panneau dans lequel on peut dessiner
-	protected void paintComponent(Graphics g) {
-		IterateurSymbole i = new IterateurSymbole(Code39.code("MOUTON"));
-		char current;
-		int e, n, x, y;
-		x = 100;
-		y = 100;
+	private static final Epaisseur[] epaisseurs = {Epaisseur.ETROIT, Epaisseur.LARGE};
+	private static final Nature[] natures = {Nature.ESPACE, Nature.BARRE};
+	
+	private void drawBarCode(Graphics g, String code, int x, int y){
+		IterateurSymbole i = new IterateurSymbole(Code39.code(code));
+		int e, n;
 		Symbole s;
 		while(i.hasNext()){
-			current = i.next();
-			e = Character.getNumericValue(current);
-			n = i.getState();
-			s = new Symbole(e,n);
+			e = Character.getNumericValue(i.next());
+			n = i.getAcc() % 2;
+			s = new Symbole(epaisseurs[e], natures[n]);
 			s.draw(g, x, y);
 			x += s.getWidth();
 		}
+	}
+	
+	protected void paintComponent(Graphics g) {
+		drawBarCode(g, "MOUTON", 10, 10);
 	}
 }
