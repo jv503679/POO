@@ -4,6 +4,8 @@ public enum Epaisseur {
 	LARGE(5),
 	ETROIT(2);
 	
+	
+	public static final Epaisseur[] tab = {Epaisseur.ETROIT, Epaisseur.LARGE};
 	private final int width, height;
 	
 	private Epaisseur(int width){
