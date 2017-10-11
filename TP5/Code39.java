@@ -1,8 +1,8 @@
 public class Code39 {
     /**
      * Simulation d'un dictionnaire en attendant de voir la classe HashMap. On
-     * cherche l'indice i où apparaît le caractère que l'on cherche à coder
-     * dans la chaîne 'caracteres' et son codage est alors codage[i].
+     * cherche l'indice i oÃ¹ apparaÃ®t le caractÃ¨re que l'on cherche Ã  coder
+     * dans la chaÃ®ne 'caracteres' et son codage est alors codage[i].
      * Merci Juju !!
      */
     private static final String[] codage = {
@@ -18,12 +18,11 @@ public class Code39 {
     private final static String caracteres = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
     
     public static String search(char c){
-    	for(int i = 0; i < 43; i++){
-    		if(caracteres.charAt(i) == c){
-    			return codage[i];
-    		}
+    	int i = caracteres.indexOf(c);
+    	if(i < 0){
+    		return "000000000";
     	}
-    	return "000000000";
+		return codage[i];
     }
     
     private static void buildString(StringBuilder sb, char c){
