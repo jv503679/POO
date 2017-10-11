@@ -1,10 +1,10 @@
 public class IterateurSymbole {
-	private final String s;
+	private final String str;
 	private int acc, len;
 	
-	public IterateurSymbole(String s){
-		this.s = s;
-		this.len = s.length();
+	public IterateurSymbole(String str){
+		this.str = str;
+		this.len = str.length();
 		acc = 0;
 	}
 	
@@ -12,12 +12,10 @@ public class IterateurSymbole {
 		return acc < len;
 	}
 	
-	public char next(){
+	public Symbole next(){
+		int e = Character.getNumericValue(str.charAt(acc));
+		int n = acc % 2;
 		acc += 1;
-		return s.charAt(acc - 1);
-	}
-	
-	public int getAcc(){
-		return acc;
+		return new Symbole(Epaisseur.tab[e], Nature.tab[n]);
 	}
 }
